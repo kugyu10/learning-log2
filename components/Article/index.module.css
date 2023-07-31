@@ -90,8 +90,9 @@
 }
 
 .content > p {
-  margin: 2rem 0 0.5rem;
+  margin: 1rem 0 0.5rem;
   line-height: 2;
+  min-height: 1rem;
 }
 
 .content > pre {
