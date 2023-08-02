@@ -7,13 +7,13 @@ import './globals.css';
 import styles from './layout.module.css';
 
 export const metadata = {
-  metadataBase: new URL(process.env.BASE_URL || 'http://localhost:3000'),
-  title: 'Simple Blog',
-  description: 'A simple blog presented by microCMS',
+  metadataBase: new URL(process.env.BASE_URL || 'https://learning.uota-it.com/'),
+  title: '魚田のラーニング・ログ',
+  description: '魚田じゅんの日々のインプットの記録です',
   openGraph: {
-    title: 'Simple Blog',
-    description: 'A simple blog presented by microCMS',
-    images: '/ogp.png',
+    title: '魚田のラーニング・ログ',
+    description: '魚田じゅんの日々のインプットの記録です',
+    images: '/learning-log-logo.png',
   },
   alternates: {
     canonical: '/',
