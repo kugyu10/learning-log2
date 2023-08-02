@@ -5,6 +5,8 @@ import Footer from '@/components/Footer';
 import Nav from '@/components/Nav';
 import './globals.css';
 import styles from './layout.module.css';
+import Script from "next/script";
+import * as gtag from "@/libs/gtag";
 
 export const metadata = {
   metadataBase: new URL(process.env.BASE_URL || 'https://learning.uota-it.com/'),
@@ -30,6 +32,23 @@ export default async function RootLayout({ children }: Props) {
   });
   return (
     <html lang="ja">
+      <Script
+         strategy="afterInteractive"
+         src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_MEASUREMENT_ID}`}
+       />
+       <Script
+         id="gtag-init"
+         strategy="afterInteractive"
+         dangerouslySetInnerHTML={{
+           __html: `
+           window.dataLayer = window.dataLayer || [];
+           function gtag(){dataLayer.push(arguments);}
+           gtag('js', new Date());
+ 
+           gtag('config', '${gtag.GA_MEASUREMENT_ID}');
+           `,
+         }}
+       />
       <body>
         <Header />
         <Nav tags={tags.contents} />
