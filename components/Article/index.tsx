@@ -13,7 +13,7 @@ type Props = {
 export default function Article({ data, param }: Props,) {
   const pathname = param;
   const siteUrl = `${process.env.BASE_URL}`;
-  const url = `${siteUrl}${pathname}`;
+  const url = `${siteUrl}articles/${pathname}`;
   
   return (
     <main className={styles.main}>
