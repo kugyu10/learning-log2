@@ -3,6 +3,7 @@ import { type Article } from '@/libs/microcms';
 import PublishedDate from '../Date';
 import styles from './index.module.css';
 import TagList from '../TagList';
+import Script from 'next/script';
 
 
 type Props = {
@@ -74,7 +75,7 @@ export default function Article({ data, param }: Props,) {
           data-lang="ja"
           data-url={url}
         >ツイート</a>
-        <script src="https://platform.twitter.com/widgets.js" />
+        <Script src="https://platform.twitter.com/widgets.js" />
       </p>
     </main>
   );
