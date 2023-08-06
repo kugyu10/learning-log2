@@ -4,11 +4,17 @@ import PublishedDate from '../Date';
 import styles from './index.module.css';
 import TagList from '../TagList';
 
+
 type Props = {
   data: Article;
+  param: string;
 };
 
-export default function Article({ data }: Props) {
+export default function Article({ data, param }: Props,) {
+  const pathname = param;
+  const siteUrl = `${process.env.BASE_URL}`;
+  const url = `${siteUrl}${pathname}`;
+  
   return (
     <main className={styles.main}>
       <h1 className={styles.title}>{data.title}</h1>
@@ -59,6 +65,17 @@ export default function Article({ data }: Props) {
           __html: `${formatRichText(data.content)}`,
         }}
       />
+      <p className="btn-tweet">
+        <a
+          href="https://twitter.com/share?ref_src=twsrc%5Etfw"
+          target="_blank"
+          className="twitter-share-button"
+          data-show-count="false"
+          data-lang="ja"
+          data-url={url}
+        >ツイート</a>
+        <script src="https://platform.twitter.com/widgets.js" />
+      </p>
     </main>
   );
 }

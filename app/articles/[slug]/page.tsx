@@ -21,6 +21,8 @@ export async function generateMetadata({ params, searchParams }: Props): Promise
   return {
     title: data.title,
     description: data.description,
+    robots: 
+      params.slug ,
     openGraph: {
       title: data.title,
       description: data.description,
@@ -30,9 +32,10 @@ export async function generateMetadata({ params, searchParams }: Props): Promise
 }
 
 export default async function Page({ params, searchParams }: Props) {
+  const param = params.slug
   const data = await getDetail(params.slug, {
     draftKey: searchParams.dk,
   });
 
-  return <Article data={data} />;
+  return <Article data={data} param={param} />;
 }
