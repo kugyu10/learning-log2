@@ -13,11 +13,10 @@ export type Tag = {
 } & MicroCMSContentId &
   MicroCMSDate;
 
-// ライターの型定義
-export type Writer = {
+// CTAの型定義
+export type Cta = {
   name: string;
-  profile: string;
-  image?: MicroCMSImage;
+  content: string;
 } & MicroCMSContentId &
   MicroCMSDate;
 
@@ -28,7 +27,7 @@ export type Blog = {
   content: string;
   thumbnail?: MicroCMSImage;
   tags?: Tag[];
-  writer?: Writer;
+  cta?: Cta;
 };
 
 export type Article = Blog & MicroCMSContentId & MicroCMSDate;
