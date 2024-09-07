@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { getDetail } from '@/libs/microcms';
 import Article from '@/components/Article';
+import { metadata } from '@/app/layout';
 
 type Props = {
   params: {
@@ -19,10 +20,9 @@ export async function generateMetadata({ params, searchParams }: Props): Promise
   });
 
   return {
-    title: data.title,
+    title: `${data.title} | ${metadata.title}`,
     description: data.description,
-    robots: 
-      params.slug ,
+    robots: params.slug,
     openGraph: {
       title: data.title,
       description: data.description,
@@ -32,7 +32,7 @@ export async function generateMetadata({ params, searchParams }: Props): Promise
 }
 
 export default async function Page({ params, searchParams }: Props) {
-  const param = params.slug
+  const param = params.slug;
   const data = await getDetail(params.slug, {
     draftKey: searchParams.dk,
   });

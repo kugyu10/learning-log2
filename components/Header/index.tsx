@@ -6,14 +6,7 @@ export default function Header() {
   return (
     <header className={styles.header}>
       <Link href="/">
-        <Image
-          src="/learning-log-logo.png"
-          alt="魚田のラーニング・ログ"
-          className={styles.logo}
-          width={459}
-          height={135}
-          priority
-        />
+        <Image src="/logo.png" alt="" width={213} height={109} priority />
       </Link>
     </header>
   );
